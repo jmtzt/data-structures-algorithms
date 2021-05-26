@@ -74,15 +74,14 @@ class LinkedList:
             tmp = tmp.next
 
     def reverse(self):
-        first = self.head
-        sec = first.next
-        while sec != None:
-            tmp = sec.next
-            sec.next = first
-            first = sec
-            sec = tmp
-        self.head.next = None
-        self.head = first 
+        prev = None 
+        curr = self.head
+        while curr != None:
+            next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        self.head = prev
 
 
 l = LinkedList()
